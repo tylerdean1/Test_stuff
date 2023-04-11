@@ -1,0 +1,171 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    margin: 0;
+    background: #b7b7b7;
+    font-family: 'Permanent Marker', cursive;
+    margin-bottom: 100px;
+}
+
+.container {
+    width: 95%;
+    margin: 0;
+}
+
+header {
+    background: #66a9d6;
+    border-bottom-style:solid;
+    border-bottom-width: 5px;
+    border-bottom-color: #000000bc;
+}
+
+header::after{
+    content:'';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    width: 75px;
+    margin: 0;
+    padding: 10px;
+
+}
+
+nav {
+    float: right;
+    
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 25px;
+    padding-top: 35px;
+    position: relative;
+}
+
+nav a {
+    color:#000;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color:rgb(255, 255, 255);
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 6px;
+    width: 100%;
+    background-color: rgba(0, 0, 0);
+    position: absolute;
+    top: 60px;
+    width: 0%;
+    transition: all ease-in-out 250ms;
+}
+nav a:hover::before {
+    width: 110%;
+}
+
+.title{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 30px;
+}
+
+.intro{
+    margin-left: 5%;
+    font-size: 15px;
+    text-align: center;
+    font-family: Tahoma, sans-serif; 
+    padding: 2em;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.note {
+    padding: 1em;
+    border: solid;
+    border-width: 1px;
+    border-radius: .5em;
+    box-shadow: 10px 10px 30px;
+    background-color: beige;
+}
+
+abbr {
+    text-decoration: underline;
+    position: relative;
+    
+}
+abbr:hover {
+    color:#66a9d6
+}
+
+abbr:hover::after {
+    position: absolute;
+    bottom: 100%;
+    display:block;
+    width:auto-fit;
+    padding: 1em;
+    background: #66a9d6;
+    color:#000;
+    border: solid 1px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 30px;
+    content: attr(title);
+    font-family: Tahoma, sans-serif;
+    font-weight: 750;
+}
+
+.generalInfo {
+    border-style: solid;
+    background-color: #252525;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px;
+    margin-left: 5%;
+    font-size: 15px;
+    text-align: center;
+    font-family: Tahoma, sans-serif; 
+    padding: 2em;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.formTitle {
+    text-align: center;
+    color:#000;
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+
+input {
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.formSections {
+    font-weight: 1000;
+    padding: 1em;
+    border: solid;
+    border-width: 2px;
+    border-radius: .5em;
+    box-shadow: 10px 10px 30px;
+    background-color: beige;
+}

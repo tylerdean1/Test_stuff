@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>QA Control Strip</title>
+    </head>
+
+    <header>
+        <div class="container"> 
+            <a href="../Home_page/home.html"><img src="../Images/favicon.jpg" alt="logo" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="../Home_page/home.html"> Home </a></li>
+                    <li><a href="control_strip_QA.html"> QA Control Stip </a></li>
+                    <li><a href="control_strip_QC.html"> QC Control Strip </a></li>
+                    <li><a href="density_test_QC.html"> QC Test Section </a></li>
+                    <li><a href="density_test_QA.html"> QA Test </a></li>
+                    <li><a href="density_test_V.html"> QA V Test </a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+    </header>
+
+    <body>
+        <div class="title">
+            <h1>QA Control Strip <small>(m&t 514 qa)</small></h1>
+        </div> 
+        <div class="intro">
+            <div class="note">
+                <p>* The purpose of this page is to take the M&T 514 QA form and make it paperless. *</p>
+            </div>
+            <div class="note">
+                <p>* The goal of the QC Personnel is to obtain a <abbr title="This is obtained by averaging all of the PCF readings for the core sample locations and dividing them by the 'average % compaction' from the core samples">
+                    Correlated Target Density</abbr> 
+                     for their gauges and obtain an <abbr title="This is only for nuclear gauges. System 1 must remain within +/- 1.0% of the standard count and System 2 must remain within +/- 1.2%.">
+                    allowable standard count range</abbr>. *
+                </p>
+            </div>
+        </div>
+            <h2 class="formTitle"> General Test Setup info :</h2>
+        <div>
+            <form class="generalInfo" action="process.php" method="POST">
+                <div class="formSections">
+                    <label>Gauge Type: </label>
+                    <input type="radio" id="nuclear" name="gauge_type" value="nuclear">
+                    <label for="nuclear">Nuclear</label>
+                    <input type="radio" id="nonNuclear" name="gauge_type" value="nonNuclear">
+                    <label for="nonNuclear">Non-Nuclear</label>
+                </div>
+                <div class="formSections">
+                    <label for="qaCtrlDate">Date:</label>
+                    <input title="qaCtrDate" type="date" id="qaCtrDate" placeholder="Date of Control Strip Test">
+                </div>
+                <div class="formSections">
+                    <label for="qaname">QA Personnel Name: </label>
+                    <input type="text" id="qaname" name="qaname" placeholder="Full Name">
+                </div>
+                <div class="formSections">
+                    <label for="hicamsNum">HICAMS #: </label>
+                    <input type="text" id="hicamsNum" name="hicamsNum" placeholder="12345">
+                </div>
+                <div class="formSections">
+                    <label for="contractNum">Contract #: </label>
+                    <input type="text" id="contractNum" name="contractNum" placeholder="DC00123">
+                </div>
+                <div class="formSections">
+                    <label for="county">County:</label>
+                    <input type="text" id="county" name="county" placeholder="Pender">
+                </div>
+                <div class="formSections">
+                    <label for="ctrStripNum">Control Strip #: </label>
+                    <input type="text" id="ctrStripNum" name="ctrStripNum" placeholder="1 QA">
+                </div>
+                <div class="formSections">
+                    <label for="startStation">Starting Station: </label>
+                    <input type="number" id="startStation" name="startStation" placeholder="1500">
+                </div>
+                <div class="formSections">
+                    <label for="endStation">Ending Station: </label>
+                    <input type="number" id="endStation" name="endStation" placeholder="2000">
+                </div>
+                <div class="formSections">
+                    <label for="lane">Lane</label>
+                    <input type="text" id="lane" name="lane" placeholder="Right">
+                </div>
+                <div class="formSections">
+                    <label for="layer">Layer: </label>
+                    <input type="text" id="layer" name="layer" placeholder="Surface">
+                </div>
+                <div class="formSections">
+                    <label for="depth">Depth(inches): </label>
+                    <input type="number" id="depth" name="depth" placeholder="2">
+                </div>
+                <div class="formSections">
+                    <label for="width">Width(feet): </label>
+                    <input type="number" id="width" name="width" placeholder="12">
+                </div>
+                <div class="formSections">
+                    <label for="routeMap">Route/Map#: </label>
+                    <input type="text" id="routeMap" name="routeMap" placeholder="Map 1 Hwy 50">
+                </div>
+                <div class="formSections">
+                    <label for="jmf">Job Mix Formula: </label>
+                    <input type="text" id="jmf" name="jmf" placeholder="12-3456-789">
+                </div>
+                <div class="formSections">
+                    <label for="gSerialNum">Gauge Serial #: </label>
+                    <input type="text" id="gSerialNum" name="gSerialNum" placeholder="007">
+                </div>
+                <div class="formSections">
+                    <label for="material">Material: </label>
+                    <input type="text" id="material" name="material" placeholder="RS-9.5C">
+                </div>
+                <div class="formSections">
+                    <label for="crewNum">Crew #: </label>
+                    <input type="text" id="crewNum" name="crewNum" placeholder="Crew #1">
+                </div>
+            </form>
+            </div>
+                <h2 class="formTitle"> Standard Counts :</h2>
+            <div>
+            <form id="standardCounts" class="generalInfo" action="process.php" method="POST">
+                <div class="formSections">
+                    <label for="sys1">System #1: </label>
+                    <input type="number" id="sys1" name="sys1" placeholder="5265">
+                    <label for="sys2">System #2: </label>
+                    <input type="number" id="sys2" name="sys2" placeholder="1879">
+                </div>
+                <div id="qaSys1OutPlus" class="formSections">
+                    <label for="sys1Plus">System 1 Top range (+1.0%): </label>
+                    <output class="output" id="sys1Plus" type="number">(System 1 * 1.01)</output>
+                    <label for="sys1Minus">System 1 Bottom range (-1.0%): </label>
+                    <output class="output" id="sys1Minus" type="number">(System 1 * 0.99)</output>
+                </div>
+            </form>
+        </div>
+                    
+    </body>
+</html>
