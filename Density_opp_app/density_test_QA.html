@@ -28,11 +28,364 @@
     </header>
 
     <body>
-        <div>
-            <h1 class="title">QA Density Test Section <small> (m&t 515 qa)</small></h1> 
+        <div class="title">
+            <h1>QA Test Section <small>(m&t 515 qa)</small></h1>
+        </div> 
+        <div class="intro">
+            <div class="note">
+                <p>* The purpose of this page is to take the M&T 515 QA form and make it paperless. *</p>
+            </div>
+            <div class="note">
+                <p>* The goal of the QA Personnel is to re-test at least 5% of QC's tests to ensure that there is no 
+                discrepancies and the asphalt is being placed according to the standards and specifications. *
+                </p>
+            </div>
         </div>
+            <h2 class="formTitle"> General Test Setup info :</h2>
         <div>
-            <p class="intro">The purpose of this page is to easily take the </p>
+            <form class="generalInfo" action="process.php" method="POST">
+                <div class="formSections">
+                    <label>Gauge Type: </label>
+                    <input type="radio" id="nuclear" name="gauge_type" value="nuclear">
+                    <label for="nuclear">Nuclear</label>
+                    <input type="radio" id="nonNuclear" name="gauge_type" value="nonNuclear">
+                    <label for="nonNuclear">Non-Nuclear</label>
+                </div>
+                <div class="formSections">
+                    <label for="qaCtrlDate">Date:</label>
+                    <input title="qaCtrDate" type="date" id="qaCtrDate" placeholder="Date of Control Strip Test">
+                </div>
+                <div class="formSections">
+                    <label for="qaname">QA Personnel Name: </label>
+                    <input type="text" id="qaname" name="qaname" placeholder="Full Name">
+                </div>
+                <div class="formSections">
+                    <label for="hicamsNum">HICAMS #: </label>
+                    <input type="text" id="hicamsNum" name="hicamsNum" placeholder="12345">
+                </div>
+                <div class="formSections">
+                    <label for="contractNum">Contract #: </label>
+                    <input type="text" id="contractNum" name="contractNum" placeholder="DC00123">
+                </div>
+                <div class="formSections">
+                    <label for="county">County:</label>
+                    <input type="text" id="county" name="county" placeholder="Pender">
+                </div>
+                <div class="formSections">
+                    <label for="ctrStripNum">Control Strip #: </label>
+                    <input type="text" id="ctrStripNum" name="ctrStripNum" placeholder="1 QA">
+                </div>
+                <div class="formSections">
+                    <label for="startStation">Starting Station: </label>
+                    <input type="number" id="startStation" name="startStation" placeholder="1500">
+                </div>
+                <div class="formSections">
+                    <label for="endStation">Ending Station: </label>
+                    <input type="number" id="endStation" name="endStation" placeholder="1800">
+                </div>
+                <div class="formSections">
+                    <label for="lane">Lane</label>
+                    <input type="text" id="lane" name="lane" placeholder="Right">
+                </div>
+                <div class="formSections">
+                    <label for="layer">Layer: </label>
+                    <input type="text" id="layer" name="layer" placeholder="Surface">
+                </div>
+                <div class="formSections">
+                    <label for="depth">Depth(inches): </label>
+                    <input type="number" id="depth" name="depth" placeholder="2">
+                </div>
+                <div class="formSections">
+                    <label for="width">Width(feet): </label>
+                    <input type="number" id="width" name="width" placeholder="12">
+                </div>
+                <div class="formSections">
+                    <label for="routeMap">Route/Map#: </label>
+                    <input type="text" id="routeMap" name="routeMap" placeholder="Map 1 Hwy 50">
+                </div>
+                <div class="formSections">
+                    <label for="jmf">Job Mix Formula: </label>
+                    <input type="text" id="jmf" name="jmf" placeholder="12-3456-789">
+                </div>
+                <div class="formSections">
+                    <label for="gSerialNum">Gauge Serial #: </label>
+                    <input type="text" id="gSerialNum" name="gSerialNum" placeholder="007">
+                </div>
+                <div class="formSections">
+                    <label for="material">Material: </label>
+                    <input type="text" id="material" name="material" placeholder="RS-9.5C">
+                </div>
+                <div class="formSections">
+                    <label for="crewNum">Crew #: </label>
+                    <input type="text" id="crewNum" name="crewNum" placeholder="Crew #1">
+                </div>
+            </form>
+
+            </div>
+                <h2 class="formTitle"> Standard Counts :</h2>
+            <div>
+
+            <form id="standardCounts" class="generalInfo" action="process.php" method="POST">
+                <div id="qaSys2" class="formSections">
+                    <h3>
+                        System 1 Standard Count Range:
+                    </h3>
+                        <p>
+                            <label for="sys1">Standard Count: </label>
+                            <input type="number" id="sys1" name="sys1" placeholder="5265">
+                        </p>
+                        <hr>
+                        <p>
+                            <label for="sys1Plus">Top range (+1.0%): </label>
+                            <output class="output" id="sys1Plus" type="number"> ( * 1.01)</output><br>
+                        </p>                        
+                        <p>
+                            <label for="sys1Minus">Bottom range (-1.0%): </label>
+                            <output class="output" id="sys1Minus" type="number"> ( * 0.99)</output>
+                        </p>
+                </div>
+                
+                <div id="qaSys2" class="formSections">
+                    <h3>
+                        System 2 Standard Count Range:
+                    </h3>
+                        <p>
+                            <label for="sys2">System #2: </label>
+                            <input type="number" id="sys2" name="sys2" placeholder="1879">
+                        </p>
+                        <hr>
+                        <p>
+                            <label for="2ys1Plus">Top range (+1.2%): </label>
+                            <output class="output" id="2ys1Plus" type="number"> ( * 1.012)</output><br>
+                        </p>
+                        <p>
+                            <label for="sys2Minus">Bottom range (-1.2%): </label>
+                            <output class="output" id="sys2Minus" type="number"> ( * 0.988)</output>
+                        </p>
+                    
+                </div>    
+            </form>
+
+            <div>
+                <h2 class="formTitle"> Core Samples : </h2>
+            </div>
+
+            <form id="coreSamples" class="generalInfo" action="process.php" method="POST">
+                <div id="cores1" class="formSections">
+                    <h3>
+                        First Core:
+                    </h3>
+                    <p>
+                        <label for="coreName1">Core #: </label>
+                        <input type="text" id="coreName1" name="coreName1" placeholder="1 QA">
+                    </p>
+                    <p>
+                        <label for="stationNum1">Core Station #: </label>
+                        <output class="output" id="stationNum1" type="number"> Start + 50</output>
+                    </p>
+                    <p>
+                        <label for="percentCompaction1">Core Compacton %: </label>
+                        <input type="number" id="percentCompaction1" name="percentCompaction1" placeholder="92.1">
+                    </p>
+                </div> 
+
+                <div id="cores2" class="formSections">
+                    <h3>
+                        Second Core:
+                    </h3>
+                    <p>
+                        <label for="coreName2">Core #: </label>
+                        <input type="text" id="coreName2" name="coreName2" placeholder="2 QA">
+                    </p>
+                    <p>
+                        <label for="stationNum2">Core Station #: </label>
+                        <output class="output" id="stationNum2" type="number"> Start + 100</output>
+                    </p>
+                    <p>
+                        <label for="percentCompaction2">Core Compacton %: </label>
+                        <input type="number" id="percentCompaction2" name="percentCompaction2" placeholder="92.5">
+                    </p>
+                </div>
+
+                <div id="cores3" class="formSections">
+                    <h3>
+                        Third Core:
+                    </h3>
+                    <p>
+                        <label for="coreName3">Core #: </label>
+                        <input type="text" id="coreName3" name="coreName3" placeholder="3 QA">
+                    </p>
+                    <p>
+                        <label for="stationNum3">Core Station #: </label>
+                        <output class="output" id="stationNum3" type="number"> Start + 150</output>
+                    </p>
+                    <p>
+                        <label for="percentCompaction3">Core Compacton %: </label>
+                        <input type="number" id="percentCompaction3" name="percentCompaction3" placeholder="92.3">
+                    </p>
+                </div>
+
+                <div id="cores4" class="formSections">
+                    <h3>
+                        Fourth Core:
+                    </h3>
+                    <p>
+                        <label for="coreName4">Core #: </label>
+                        <input type="text" id="coreName4" name="coreName4" placeholder="4 QA">
+                    </p>
+                    <p>
+                        <label for="stationNum4">Core Station #: </label>
+                        <output class="output" id="stationNum4" type="number"> Start + 200</output>
+                    </p>
+                    <p>
+                        <label for="percentCompaction4">Core Compacton %: </label>
+                        <input type="number" id="percentCompaction4" name="percentCompaction4" placeholder="92.7">
+                    </p>
+                </div>
+
+                <div id="cores5" class="formSections">
+                    <h3>
+                        Fifth Core:
+                    </h3>
+                    <p>
+                        <label for="coreName5">Core #: </label>
+                        <input type="text" id="coreName5" name="coreName5" placeholder="5 QA">
+                    </p>
+                    <p>
+                        <label for="stationNum5">Core Station #: </label>
+                        <output class="output" id="stationNum5" type="number"> Start + 250</output>
+                    </p>
+                    <p>
+                        <label for="percentCompaction5">Core Compacton %: </label>
+                        <input type="number" id="percentCompaction5" name="percentCompaction5" placeholder="93.1">
+                    </p>
+                </div>
+
+                <div id="coreAvgBox" class="formSections">
+                    <h3>
+                        Average Core Compaction %:
+                    </h3>
+                    <output class="output" id="coreAvg" type="number">92.5</output>
+                </div>
+            </form> 
+
+            <div>
+                <h2 class="formTitle"> Gauge Readings : </h2>
+            </div>
+            
+            
+
+            <form id="QACtrtests" class="generalInfo" action="process.php" method="POST">
+                <div class="noteBox">
+                    <div class="note">
+                        <p><strong>NOTE: </strong><br> *These readings should be taken from directly over the core locations before 
+                        they are cut, but after the final roller pass. The Correlated Target Density will be calculated
+                        from these values. *</p>
+                    </div>
+                </div>
+
+                <div id="QAcores1" class="formSections">
+                    <h3>
+                        First Core Gauge Test:
+                    </h3>
+                    <p class="gaugeStation">
+                        <label for="testStationNum1">Core Station #: </label>
+                        <output class="output" id="testStationNum1" type="number"> Start + 50</output>
+                    </p>
+                    <p>
+                        <label for="firstShot1">Gauge Reading #1 (PCF): </label>
+                        <input type="text" id="firstShot1" name="firstShot1" placeholder="145.7">
+                    </p>
+                    <p>
+                        <label for="secondShot1">Gauge Reading #2 (PCF): </label>
+                        <input type="number" id="secondShot1" name="secondShot1" placeholder="147.5">
+                    </p>
+                </div> 
+
+                <div id="QAcores2" class="formSections">
+                    <h3>
+                        Second Core Gauge Test:
+                    </h3>
+                    <p class="gaugeStation">
+                        <label for="testStationNum2">Core Station #: </label>
+                        <output class="output" id="testStationNum2" type="number"> Start + 100</output>
+                    </p>
+                    <p>
+                        <label for="firstShot2">Gauge Reading #1 (PCF): </label>
+                        <input type="text" id="firstShot2" name="firstShot2" placeholder="152.1">
+                    </p>
+                    <p>
+                        <label for="secondShot2">Gauge Reading #2 (PCF): </label>
+                        <input type="number" id="secondShot2" name="secondShot2" placeholder="149.2">
+                    </p>
+                </div>
+
+                <div id="QAcores3" class="formSections">
+                    <h3>
+                        Third Core Gauge Test:
+                    </h3>
+                    <p class="gaugeStation">
+                        <label for="testStationNum3">Core Station #: </label>
+                        <output class="output" id="testStationNum3" type="number"> Start + 150</output>
+                    </p>
+                    <p>
+                        <label for="firstShot3">Gauge Reading #1 (PCF): </label>
+                        <input type="text" id="firstShot3" name="firstShot3" placeholder="150.4">
+                    </p>
+                    <p>
+                        <label for="secondShot3">Gauge Reading #2 (PCF): </label>
+                        <input type="number" id="secondShot3" name="secondShot3" placeholder="148.6">
+                    </p>
+                </div>
+
+                <div id="QAcores4" class="formSections">
+                    <h3>
+                        Fourth Core Gauge Test:
+                    </h3>
+                    <p class="gaugeStation">
+                        <label for="testStationNum4">Core Station #: </label>
+                        <output class="output" id="testStationNum4" type="number"> Start + 200</output>
+                    </p>
+                    <p>
+                        <label for="firstShot4">Gauge Reading #1 (PCF): </label>
+                        <input type="text" id="firstShot4" name="firstShot4" placeholder="146.9">
+                    </p>
+                    <p>
+                        <label for="secondShot4">Gauge Reading #2 (PCF): </label>
+                        <input type="number" id="secondShot4" name="secondShot4" placeholder="144.8">
+                    </p>
+                </div>
+
+                <div id="QAcores5" class="formSections">
+                    <h3>
+                        Fifth Core Gauge Test:
+                    </h3>
+                    <p class="gaugeStation">
+                        <label for="testStationNum5">Core Station #: </label>
+                        <output class="output" id="testStationNum5" type="number"> Start + 250</output>
+                    </p>
+                    <p>
+                        <label for="firstShot5">Gauge Reading #1 (PCF): </label>
+                        <input type="text" id="firstShot5" name="firstShot5" placeholder="145.3">
+                    </p>
+                    <p>
+                        <label for="secondShot5">Gauge Reading #2 (PCF): </label>
+                        <input type="number" id="secondShot5" name="secondShot5" placeholder="147.6">
+                    </p>
+                </div>
+
+                <div id="coreAvgBox" class="formSections">
+                    <h3>
+                        Average Asphalt PCF:
+                    </h3>
+                    <output class="output" id="avgPCF" type="number">147.8</output>
+                    <h3 id="correlatedPCFHeader">
+                        Correlated Target Density PCF:
+                    </h3>
+                    <output class="output" id="QAcorrelatedTargetDensity" type="number">159.8</output>
+                </div>
+            </form>
         </div>
+                    
     </body>
 </html>

@@ -5,21 +5,32 @@
 
 body {
     margin: 0;
-    background: #b7b7b7;
+    margin-top:5em;
+    background: linear-gradient(to top, rgb(90, 90, 90), beige, rgb(90, 90, 90));
     font-family: 'Permanent Marker', cursive;
     margin-bottom: 100px;
 }
 
+h2{
+    margin-top:10em;
+}
+
 .container {
-    width: 95%;
+    width: 100%;
+    height: 7.5%;
     margin: 0;
+
 }
 
 header {
-    background: #66a9d6;
+    background: linear-gradient(to right,rgb(26, 43, 49), #66a9d6, rgb(26, 43, 49));
     border-bottom-style:solid;
     border-bottom-width: 5px;
     border-bottom-color: #000000bc;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 header::after{
@@ -31,13 +42,14 @@ header::after{
 .logo {
     float: left;
     width: 75px;
-    margin: 0;
+    margin: .1em 2em;
     padding: 10px;
 
 }
 
 nav {
     float: right;
+    margin-right: 10em;
     
 }
 
@@ -98,6 +110,18 @@ nav a:hover::before {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
+.noteBox{
+    margin-left: 5%;
+    margin-top: none;
+    font-size: 15px;
+    text-align: center;
+    font-family: Tahoma, sans-serif; 
+    padding: .5em;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
 .note {
     padding: 1em;
     border: solid;
@@ -105,12 +129,14 @@ nav a:hover::before {
     border-radius: .5em;
     box-shadow: 10px 10px 30px;
     background-color: beige;
+    margin-right: 5em;
+    font-family: Tahoma, sans-serif;
+    font-weight: 500;
 }
 
-abbr {
+.note abbr {
     text-decoration: underline;
-    position: relative;
-    
+    position: sticky;
 }
 abbr:hover {
     color:#66a9d6
@@ -137,7 +163,8 @@ abbr:hover::after {
     background-color: #252525;
     border-radius: 10px;
     box-shadow: 10px 10px 30px;
-    margin-left: 5%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     font-size: 15px;
     text-align: center;
     font-family: Tahoma, sans-serif; 
@@ -145,6 +172,7 @@ abbr:hover::after {
     display: grid;
     grid-gap: 2em;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  
 }
 
 .formTitle {
@@ -158,6 +186,7 @@ abbr:hover::after {
 input {
     text-align: center;
     font-family: 'Permanent Marker', cursive;
+    margin: 1em;
 }
 
 .formSections {
@@ -168,4 +197,58 @@ input {
     border-radius: .5em;
     box-shadow: 10px 10px 30px;
     background-color: beige;
+    
+}
+
+.output {
+    border-style: solid;
+    background-color: rgba(168, 103, 6, 0.632);
+    font-weight: 100;
+    font-size: 12px;
+    font-family:  'Permanent Marker', cursive;;
+    border-width: 2px;
+    border-color: #000000;
+    margin: 1em;
+    padding: .1em 2em;
+    border-radius: 3px;
+}
+
+.formSections h3 {
+    font-family: 'Permanent Marker', cursive;
+    text-decoration: underline 3px;   
+    margin-bottom: 2em; 
+}
+
+#qaSys1 p{
+    padding: 1em;
+}
+
+
+#qaSys2 p{
+    padding:1em;
+}
+
+hr {
+    height: 5px;
+    border: 2px black;
+    border-radius: 10px;
+    background: linear-gradient(to left, black, #66a9d6);    
+}
+
+#coreAvgBox h3 {
+    margin-bottom: 1.5em;;
+}
+
+#coreAvgBox output {
+    padding-left: 5em;
+    padding-right: 5em;
+    font-size: 20px;
+}
+
+.gaugeStation {
+    margin: 2em;
+}
+
+#correlatedPCFHeader {
+    margin-top:2em;
 }
