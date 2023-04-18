@@ -125,10 +125,10 @@ nav a:hover::before {
 .note {
     padding: 1em;
     border: solid;
-    border-width: 1px;
+    border-width: 3px;
     border-radius: .5em;
     box-shadow: 10px 10px 30px;
-    background-color: beige;
+    background-color: rgb(241, 241, 241);
     margin-right: 5em;
     font-family: Tahoma, sans-serif;
     font-weight: 500;
