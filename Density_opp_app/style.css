@@ -6,7 +6,7 @@
 body {
     margin: 0;
     margin-top:5em;
-    background: linear-gradient(to top, rgb(90, 90, 90), beige, rgb(90, 90, 90));
+    background: linear-gradient(to top, rgb(90, 90, 90), beige, rgb(227, 227, 227),  beige);
     font-family: 'Permanent Marker', cursive;
     margin-bottom: 100px;
 }
@@ -23,7 +23,7 @@ h2{
 }
 
 header {
-    background: linear-gradient(to right,rgb(26, 43, 49), #66a9d6, rgb(26, 43, 49));
+    background: linear-gradient(to right,rgb(26, 43, 49), #66a9d6, rgb(132, 219, 251),#66a9d6);
     border-bottom-style:solid;
     border-bottom-width: 5px;
     border-bottom-color: #000000bc;
@@ -111,24 +111,23 @@ nav a:hover::before {
 }
 
 .noteBox{
-    margin-left: 5%;
-    margin-top: none;
+    margin-left: 15%;
+    margin-top: 2em;
     font-size: 15px;
+    width:auto;
     text-align: center;
     font-family: Tahoma, sans-serif; 
     padding: .5em;
-    display: grid;
-    grid-gap: 2em;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    display: flexbox;
 }
 
 .note {
     padding: 1em;
     border: solid;
-    border-width: 3px;
+    border-width: 1px;
     border-radius: .5em;
     box-shadow: 10px 10px 30px;
-    background-color: rgb(241, 241, 241);
+    background-color: beige;
     margin-right: 5em;
     font-family: Tahoma, sans-serif;
     font-weight: 500;
@@ -136,7 +135,7 @@ nav a:hover::before {
 
 .note abbr {
     text-decoration: underline;
-    position: sticky;
+    position: relative;
 }
 abbr:hover {
     color:#66a9d6
