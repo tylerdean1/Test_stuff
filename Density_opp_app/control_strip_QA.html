@@ -1,396 +1,456 @@
 <!doctype html>
 <html lang="en">
-    <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <title>QA Control Strip</title>
-    <link href="control_strip_QA.js">
-    </head>
+    <script src="control_strip_QA.js" defer></script>
+</head>
 
-    <header>
-        <div class="container"> 
-            <a href="../Home_page/home.html"><img src="../Images/favicon.jpg" alt="logo" class="logo"></a>
-            <nav>
-                <ul>
-                    <li><a href="../Home_page/home.html"> Home </a></li>
-                    <li><a href="control_strip_QA.html"> QA Control Stip </a></li>
-                    <li><a href="control_strip_QC.html"> QC Control Strip </a></li>
-                    <li><a href="density_test_QC.html"> QC Test Section </a></li>
-                    <li><a href="density_test_QA.html"> QA Test </a></li>
-                    <li><a href="density_test_V.html"> QA V Test </a></li>
-                </ul>
-            </nav>
+<header>
+    <div class="container">
+        <a href="../Home_page/home.html"><img src="../Images/favicon.jpg" alt="logo" class="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="../Home_page/home.html"> Home </a></li>
+                <li><a href="control_strip_QA.html"> QA Control Stip </a></li>
+                <li><a href="control_strip_QC.html"> QC Control Strip </a></li>
+                <li><a href="density_test_QC.html"> QC Test Section </a></li>
+                <li><a href="density_test_QA.html"> QA Test </a></li>
+                <li><a href="density_test_V.html"> QA V Test </a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+</header>
+
+<body>
+
+    <div class="title">
+        <h1>QA Control Strip <small>(m&t 514 qa)</small></h1>
+    </div>
+
+    <div class="intro">
+        <div class="note">
+            <p>* The purpose of this page is to take the M&T 514 QA form and make it paperless. *</p>
         </div>
 
-
-    </header>
-
-    <body>
-        <div class="title">
-            <h1>QA Control Strip <small>(m&t 514 qa)</small></h1>
-        </div> 
-        <div class="intro">
-            <div class="note">
-                <p>* The purpose of this page is to take the M&T 514 QA form and make it paperless. *</p>
-            </div>
-            <div class="note">
-                <p>* The goal of the QA Personnel is to obtain a <abbr title="This is obtained by averaging all of the PCF readings for the core sample locations and dividing them by the 'average % compaction' from the core samples">
-                    Correlated Target Density</abbr> 
-                     for their gauges and obtain an <abbr title="This is only for nuclear gauges. System 1 must remain within +/- 1.0% of the standard count and System 2 must remain within +/- 1.2%.">
+        <div class="note">
+            <p>* The goal of the QA Personnel is to obtain a <abbr
+                    title="This is obtained by averaging all of the PCF readings for the core sample locations and dividing them by the 'average % compaction' from the core samples">
+                    Correlated Target Density</abbr>
+                for their gauges and obtain an <abbr
+                    title="This is only for nuclear gauges. System 1 must remain within +/- 1.0% of the standard count and System 2 must remain within +/- 1.2%.">
                     allowable standard count range</abbr>. *
+            </p>
+        </div>
+    </div>
+
+    <h2 class="formTitle"> General Test Setup info :</h2>
+
+    <div>
+        <form id="QACS_generalSetup" class="generalInfo" action="process.php" method="POST">
+            <div class="formSections">
+                <label>Gauge Type: </label>
+                <input type="radio" id="QACS_nuclear" name="gauge_type" value="nuclear">
+                <label for="nuclear">Nuclear</label>
+                <input type="radio" id="QACS_nonNuclear" name="gauge_type" value="nonNuclear">
+                <label for="nonNuclear">Non-Nuclear</label>
+            </div>
+
+            <div class="formSections">
+                <label for="qaCtrlDate">Date:</label>
+                <input title="qaCtrlDate" type="date" id="QACS_qaCtrDate" placeholder="Date of Control Strip Test">
+            </div>
+
+            <div class="formSections">
+                <label for="qaname">QA Personnel Name: </label>
+                <input type="text" id="QACS_name" name="qaname" placeholder="Full Name">
+            </div>
+
+            <div class="formSections">
+                <label for="hicamsNum">HICAMS #: </label>
+                <input type="text" id="QACS_hicamsNum" name="hicamsNum" placeholder="12345">
+            </div>
+
+            <div class="formSections">
+                <label for="contractNum">Contract #: </label>
+                <input type="text" id="QACS_contractNum" name="contractNum" placeholder="DC00123">
+            </div>
+
+            <div class="formSections">
+                <label for="county">County:</label>
+                <input type="text" id="QACS_county" name="county" placeholder="Pender">
+            </div>
+
+            <div class="formSections">
+                <label for="ctrStripNum">Control Strip #: </label>
+                <input type="text" id="QACS_ctrStripNum" name="ctrStripNum" placeholder="1 QA">
+            </div>
+
+            <div class="formSections">
+                <label for="startStation">Starting Station: </label>
+                <input type="number" id="QACS_startStation" name="startStation" placeholder="1500">
+            </div>
+
+            <div class="formSections">
+                <label for="endStation">Ending Station: </label>
+                <input type="number" id="QACS_endStation" name="endStation" placeholder="1800">
+            </div>
+
+            <div class="formSections">
+                <label for="lane">Lane</label>
+                <input type="text" id="QACS_lane" name="lane" placeholder="Right">
+            </div>
+
+            <div class="formSections">
+                <label for="layer">Layer: </label>
+                <input type="text" id="QACS_layer" name="layer" placeholder="Surface">
+            </div>
+
+            <div class="formSections">
+                <label for="depth">Depth(inches): </label>
+                <input type="number" id="QACS_depth" name="depth" placeholder="2">
+            </div>
+
+            <div class="formSections">
+                <label for="width">Width(feet): </label>
+                <input type="number" id="QACS_width" name="width" placeholder="12">
+            </div>
+
+            <div class="formSections">
+                <label for="routeMap">Route/Map#: </label>
+                <input type="text" id="QACS_routeMap" name="routeMap" placeholder="Map 1 Hwy 50">
+            </div>
+
+            <div class="formSections">
+                <label for="jmf">Job Mix Formula: </label>
+                <input type="text" id="QACS_jmf" name="jmf" placeholder="12-3456-789">
+            </div>
+
+            <div class="formSections">
+                <label for="gSerialNum">Gauge Serial #: </label>
+                <input type="text" id="QACS_gSerialNum" name="gSerialNum" placeholder="007">
+            </div>
+
+            <div class="formSections">
+                <label for="material">Material: </label>
+                <input type="text" id="QACS_material" name="material" placeholder="RS-9.5C">
+            </div>
+
+            <div class="formSections">
+                <label for="crewNum">Crew #: </label>
+                <input type="text" id="QACS_crewNum" name="crewNum" placeholder="Crew #1">
+            </div>
+
+        </form>
+
+    </div>
+
+    <h2 id="QACS_SCTitle" class="formTitle"> Standard Counts :</h2>
+
+    
+    <div id="standardCountsDiv">
+        <form id="QACS_standardCounts" class="generalInfo" action="process.php" method="POST">
+            <div id="qaSys1" class="formSections">
+                <h3>System 1 Standard Count Range:</h3>
+
+                <p>
+                    <label for="QACS_sys1">Standard Count: </label>
+                    <input type="number" id="QACS_sys1" name="QACS_sys1" placeholder="5265">
                 </p>
+
+                <hr>
+
+                <p>
+                    <label for="QACS_sys1Plus">Top range (+1.0%): </label>
+                    <output class="output" id="QACS_sys1Plus" type="number"> ( * 1.01)</output><br>
+                </p>
+
+                <p>
+                    <label for="QACS_sys1Minus">Bottom range (-1.0%): </label>
+                    <output class="output" id="QACS_sys1Minus" type="number"> ( * 0.99)</output>
+                </p>
+
             </div>
+
+            <div id="qaSys2" class="formSections">
+                <h3>System 2 Standard Count Range:</h3>
+
+                <p>
+                    <label for="QACS_sys2">System #2: </label>
+                    <input type="number" id="QACS_sys2" name="QACS_sys2" placeholder="1879">
+                </p>
+
+                <hr>
+
+                <p>
+                    <label for="QACS_sys2Plus">Top range (+1.2%): </label>
+                    <output class="output" id="QACS_sys2Plus" type="number"> ( * 1.012)</output><br>
+                </p>
+
+                <p>
+                    <label for="QACS_sys2Minus">Bottom range (-1.2%): </label>
+                    <output class="output" id="QACS_sys2Minus" type="number"> ( * 0.988)</output>
+                </p>
+
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <h2 class="formTitle"> Core Samples : </h2>
+    </div>
+
+    <form id="QACS_coreSamples" class="generalInfo" action="process.php" method="POST">
+        <div id="QACS_cores1" class="formSections">
+            <h3>First Core:</h3>
+
+            <p>
+                <label for="QACS_coreName1">Core #: </label>
+                <input type="text" id="QACS_coreName1" name="QACS_coreName1" placeholder="1 QA">
+            </p>
+
+            <p>
+                <label for="QACS_stationNum1">Core Station #: </label>
+                <output class="output" id="QACS_stationNum1" type="number"> Start + 50</output>
+            </p>
+
+            <p>
+                <label for="QACS_percentCompaction1">Core Compacton %: </label>
+                <input type="number" id="QACS_percentCompaction1" name="QACS_percentCompaction1" placeholder="92.1">
+            </p>
+
         </div>
-            <h2 class="formTitle"> General Test Setup info :</h2>
-        <div>
-            <form class="generalInfo" action="process.php" method="POST">
-                <div class="formSections">
-                    <label>Gauge Type: </label>
-                    <input type="radio" id="QACS_nuclear" name="gauge_type" value="nuclear">
-                    <label for="nuclear">Nuclear</label>
-                    <input type="radio" id="QACS_nonNuclear" name="gauge_type" value="nonNuclear">
-                    <label for="nonNuclear">Non-Nuclear</label>
-                </div>
-                <div class="formSections">
-                    <label for="qaCtrlDate">Date:</label>
-                    <input title="qaCtrDate" type="date" id="QACS_qaCtrDate" placeholder="Date of Control Strip Test">
-                </div>
-                <div class="formSections">
-                    <label for="qaname">QA Personnel Name: </label>
-                    <input type="text" id="QACS_name" name="qaname" placeholder="Full Name">
-                </div>
-                <div class="formSections">
-                    <label for="hicamsNum">HICAMS #: </label>
-                    <input type="text" id="QACS_hicamsNum" name="hicamsNum" placeholder="12345">
-                </div>
-                <div class="formSections">
-                    <label for="contractNum">Contract #: </label>
-                    <input type="text" id="QACS_contractNum" name="contractNum" placeholder="DC00123">
-                </div>
-                <div class="formSections">
-                    <label for="county">County:</label>
-                    <input type="text" id="QACS_county" name="county" placeholder="Pender">
-                </div>
-                <div class="formSections">
-                    <label for="ctrStripNum">Control Strip #: </label>
-                    <input type="text" id="QACS_ctrStripNum" name="ctrStripNum" placeholder="1 QA">
-                </div>
-                <div class="formSections">
-                    <label for="startStation">Starting Station: </label>
-                    <input type="number" id="QACS_startStation" name="startStation" placeholder="1500">
-                </div>
-                <div class="formSections">
-                    <label for="endStation">Ending Station: </label>
-                    <input type="number" id="QACS_endStation" name="endStation" placeholder="1800">
-                </div>
-                <div class="formSections">
-                    <label for="lane">Lane</label>
-                    <input type="text" id="QACS_lane" name="lane" placeholder="Right">
-                </div>
-                <div class="formSections">
-                    <label for="layer">Layer: </label>
-                    <input type="text" id="QACS_layer" name="layer" placeholder="Surface">
-                </div>
-                <div class="formSections">
-                    <label for="depth">Depth(inches): </label>
-                    <input type="number" id="QACS_depth" name="depth" placeholder="2">
-                </div>
-                <div class="formSections">
-                    <label for="width">Width(feet): </label>
-                    <input type="number" id="QACS_width" name="width" placeholder="12">
-                </div>
-                <div class="formSections">
-                    <label for="routeMap">Route/Map#: </label>
-                    <input type="text" id="QACS_routeMap" name="routeMap" placeholder="Map 1 Hwy 50">
-                </div>
-                <div class="formSections">
-                    <label for="jmf">Job Mix Formula: </label>
-                    <input type="text" id="QACS_jmf" name="jmf" placeholder="12-3456-789">
-                </div>
-                <div class="formSections">
-                    <label for="gSerialNum">Gauge Serial #: </label>
-                    <input type="text" id="QACS_gSerialNum" name="gSerialNum" placeholder="007">
-                </div>
-                <div class="formSections">
-                    <label for="material">Material: </label>
-                    <input type="text" id="QACS_material" name="material" placeholder="RS-9.5C">
-                </div>
-                <div class="formSections">
-                    <label for="crewNum">Crew #: </label>
-                    <input type="text" id="QACS_crewNum" name="crewNum" placeholder="Crew #1">
-                </div>
-            </form>
 
-            </div>
-                <h2 class="formTitle"> Standard Counts :</h2>
-            <div>
+        <div id="QACS_cores2" class="formSections">
+            <h3>Second Core:</h3>
 
-            <form id="standardCounts" class="generalInfo" action="process.php" method="POST">
-                <div id="qaSys1" class="formSections">
-                    <h3>
-                        System 1 Standard Count Range:
-                    </h3>
-                        <p>
-                            <label for="QACS_sys1">Standard Count: </label>
-                            <input type="number" id="QACS_sys1" name="QACS_sys1" placeholder="5265">
-                        </p>
-                        <hr>
-                        <p>
-                            <label for="QACS_sys1Plus">Top range (+1.0%): </label>
-                            <output class="output" id="QACS_sys1Plus" type="number"> ( * 1.01)</output><br>
-                        </p>                        
-                        <p>
-                            <label for="QACS_sys1Minus">Bottom range (-1.0%): </label>
-                            <output class="output" id="QACS_sys1Minus" type="number"> ( * 0.99)</output>
-                        </p>
-                </div>
-                
-                <div id="qaSys2" class="formSections">
-                    <h3>
-                        System 2 Standard Count Range:
-                    </h3>
-                        <p>
-                            <label for="QACS_sys2">System #2: </label>
-                            <input type="number" id="QACS_sys2" name="QACS_sys2" placeholder="1879">
-                        </p>
-                        <hr>
-                        <p>
-                            <label for="QACS_sys2Plus">Top range (+1.2%): </label>
-                            <output class="output" id="QACS_sys2Plus" type="number"> ( * 1.012)</output><br>
-                        </p>
-                        <p>
-                            <label for="QACS_sys2Minus">Bottom range (-1.2%): </label>
-                            <output class="output" id="QACS_sys2Minus" type="number"> ( * 0.988)</output>
-                        </p>
-                    
-                </div>    
-            </form>
+            <p>
+                <label for="QACS_coreName2">Core #: </label>
+                <input type="text" id="QACS_coreName2" name="QACS_coreName2" placeholder="2 QA">
+            </p>
 
-            <div>
-                <h2 class="formTitle"> Core Samples : </h2>
-            </div>
+            <p>
+                <label for="QACS_stationNum2">Core Station #: </label>
+                <output class="output" id="QACS_stationNum2" type="number"> Start + 100</output>
+            </p>
 
-            <form id="QACS_coreSamples" class="generalInfo" action="process.php" method="POST">
-                <div id="QACS_cores1" class="formSections">
-                    <h3>
-                        First Core:
-                    </h3>
-                    <p>
-                        <label for="QACS_coreName1">Core #: </label>
-                        <input type="text" id="QACS_coreName1" name="QACS_coreName1" placeholder="1 QA">
-                    </p>
-                    <p>
-                        <label for="QACS_stationNum1">Core Station #: </label>
-                        <output class="output" id="QACS_stationNum1" type="number"> Start + 50</output>
-                    </p>
-                    <p>
-                        <label for="QACS_percentCompaction1">Core Compacton %: </label>
-                        <input type="number" id="QACS_percentCompaction1" name="QACS_percentCompaction1" placeholder="92.1">
-                    </p>
-                </div> 
+            <p>
+                <label for="QACS_percentCompaction2">Core Compacton %: </label>
+                <input type="number" id="QACS_percentCompaction2" name="QACS_percentCompaction2" placeholder="92.5">
+            </p>
 
-                <div id="QACS_cores2" class="formSections">
-                    <h3>
-                        Second Core:
-                    </h3>
-                    <p>
-                        <label for="QACS_coreName2">Core #: </label>
-                        <input type="text" id="QACS_coreName2" name="QACS_coreName2" placeholder="2 QA">
-                    </p>
-                    <p>
-                        <label for="QACS_stationNum2">Core Station #: </label>
-                        <output class="output" id="QACS_stationNum2" type="number"> Start + 100</output>
-                    </p>
-                    <p>
-                        <label for="QACS_percentCompaction2">Core Compacton %: </label>
-                        <input type="number" id="QACS_percentCompaction2" name="QACS_percentCompaction2" placeholder="92.5">
-                    </p>
-                </div>
-
-                <div id="QACS_cores3" class="formSections">
-                    <h3>
-                        Third Core:
-                    </h3>
-                    <p>
-                        <label for="QACS_coreName3">Core #: </label>
-                        <input type="text" id="QACS_coreName3" name="QACS_coreName3" placeholder="3 QA">
-                    </p>
-                    <p>
-                        <label for="QACS_stationNum3">Core Station #: </label>
-                        <output class="output" id="QACS_stationNum3" type="number"> Start + 150</output>
-                    </p>
-                    <p>
-                        <label for="QACS_percentCompaction3">Core Compacton %: </label>
-                        <input type="number" id="QACS_percentCompaction3" name="QACS_percentCompaction3" placeholder="92.3">
-                    </p>
-                </div>
-
-                <div id="QACS_cores4" class="formSections">
-                    <h3>
-                        Fourth Core:
-                    </h3>
-                    <p>
-                        <label for="QACS_coreName4">Core #: </label>
-                        <input type="text" id="QACS_coreName4" name="QACS_coreName4" placeholder="4 QA">
-                    </p>
-                    <p>
-                        <label for="QACS_stationNum4">Core Station #: </label>
-                        <output class="output" id="QACS_stationNum4" type="number"> Start + 200</output>
-                    </p>
-                    <p>
-                        <label for="QACS_percentCompaction4">Core Compacton %: </label>
-                        <input type="number" id="QACS_percentCompaction4" name="QACS_percentCompaction4" placeholder="92.7">
-                    </p>
-                </div>
-
-                <div id="QACS_cores5" class="formSections">
-                    <h3>
-                        Fifth Core:
-                    </h3>
-                    <p>
-                        <label for="QACS_coreName5">Core #: </label>
-                        <input type="text" id="QACS_coreName5" name="QACS_coreName5" placeholder="5 QA">
-                    </p>
-                    <p>
-                        <label for="QACS_stationNum5">Core Station #: </label>
-                        <output class="output" id="QACS_stationNum5" type="number"> Start + 250</output>
-                    </p>
-                    <p>
-                        <label for="QACS_percentCompaction5">Core Compacton %: </label>
-                        <input type="number" id="QACS_percentCompaction5" name="QACS_percentCompaction5" placeholder="93.1">
-                    </p>
-                </div>
-
-                <div id="QACS_coreAvgBox" class="formSections">
-                    <h3>
-                        Average Core Compaction %:
-                    </h3>
-                    <output class="output" id="QACS_coreAvg" type="number">92.5</output>
-                </div>
-            </form> 
-
-            <div>
-                <h2 class="formTitle"> Gauge Readings : </h2>
-            </div>
-            
-            
-
-            <form id="QACS_ctrtests" class="generalInfo" action="process.php" method="POST">
-                <div class="noteBox">
-                    <div class="note">
-                        <p><strong>NOTE: </strong><br></br>
-                        <hr><br></br>
-                        *These readings should be taken from directly over the core locations before 
-                        they are cut, but after the final roller pass. The Correlated Target Density will be calculated
-                        from these values. *</p>
-                    </div>
-                </div><br></br>
-
-                <div id="QACS_cores" class="formSections">
-                    <h3>
-                        First Core Gauge Test:
-                    </h3>
-                    <p class="gaugeStation">
-                        <label for="QACS_testStationNum1">Core Station #: </label>
-                        <output class="output" id="QACS_testStationNum1" type="number"> Start + 50</output>
-                    </p>
-                    <p>
-                        <label for="QACS_firstShot1">Gauge Reading #1 (PCF): </label>
-                        <input type="text" id="QACS_firstShot1" name="QACS_firstShot1" placeholder="145.7">
-                    </p>
-                    <p>
-                        <label for="QACS_secondShot1">Gauge Reading #2 (PCF): </label>
-                        <input type="number" id="QACS_secondShot1" name="QACS_secondShot1" placeholder="147.5">
-                    </p>
-                </div> 
-
-                <div id="QAcores2" class="formSections">
-                    <h3>
-                        Second Core Gauge Test:
-                    </h3>
-                    <p class="gaugeStation">
-                        <label for="QACS_testStationNum2">Core Station #: </label>
-                        <output class="output" id="QACS_testStationNum2" type="number"> Start + 100</output>
-                    </p>
-                    <p>
-                        <label for="QACS_firstShot2">Gauge Reading #1 (PCF): </label>
-                        <input type="text" id="QACS_firstShot2" name="QACS_firstShot2" placeholder="152.1">
-                    </p>
-                    <p>
-                        <label for="QACS_secondShot2">Gauge Reading #2 (PCF): </label>
-                        <input type="number" id="QACS_secondShot2" name="QACS_secondShot2" placeholder="149.2">
-                    </p>
-                </div>
-
-                <div id="QAcores3" class="formSections">
-                    <h3>
-                        Third Core Gauge Test:
-                    </h3>
-                    <p class="gaugeStation">
-                        <label for="QACS_testStationNum3">Core Station #: </label>
-                        <output class="output" id="QACS_testStationNum3" type="number"> Start + 150</output>
-                    </p>
-                    <p>
-                        <label for="QACS_firstShot3">Gauge Reading #1 (PCF): </label>
-                        <input type="text" id="QACS_firstShot3" name="QACS_firstShot3" placeholder="150.4">
-                    </p>
-                    <p>
-                        <label for="QACS_secondShot3">Gauge Reading #2 (PCF): </label>
-                        <input type="number" id="QACS_secondShot3" name="QACS_secondShot3" placeholder="148.6">
-                    </p>
-                </div>
-
-                <div id="QAcores4" class="formSections">
-                    <h3>
-                        Fourth Core Gauge Test:
-                    </h3>
-                    <p class="gaugeStation">
-                        <label for="QACS_testStationNum4">Core Station #: </label>
-                        <output class="output" id="QACS_testStationNum4" type="number"> Start + 200</output>
-                    </p>
-                    <p>
-                        <label for="QACS_firstShot4">Gauge Reading #1 (PCF): </label>
-                        <input type="text" id="QACS_firstShot4" name="QACS_firstShot4" placeholder="146.9">
-                    </p>
-                    <p>
-                        <label for="QACS_secondShot4">Gauge Reading #2 (PCF): </label>
-                        <input type="number" id="QACS_secondShot4" name="QACS_secondShot4" placeholder="144.8">
-                    </p>
-                </div>
-
-                <div id="QAcores5" class="formSections">
-                    <h3>
-                        Fifth Core Gauge Test:
-                    </h3>
-                    <p class="gaugeStation">
-                        <label for="QACS_testStationNum5">Core Station #: </label>
-                        <output class="output" id="QACS_testStationNum5" type="number"> Start + 250</output>
-                    </p>
-                    <p>
-                        <label for="QACS_firstShot5">Gauge Reading #1 (PCF): </label>
-                        <input type="text" id="QACS_firstShot5" name="QACS_firstShot5" placeholder="145.3">
-                    </p>
-                    <p>
-                        <label for="QACS_secondShot5">Gauge Reading #2 (PCF): </label>
-                        <input type="number" id="QACS_secondShot5" name="QACS_secondShot5" placeholder="147.6">
-                    </p>
-                </div>
-
-                <div id="QACS_coreAvgBox" class="formSections">
-                    <h3>
-                        Average Asphalt PCF:
-                    </h3>
-                    <output class="output" id="QACS_avgPCF" type="number">147.8</output>
-                    <h3 id="correlatedPCFHeader">
-                        Correlated Target Density PCF:
-                    </h3>
-                    <output class="output" id="QACS_correlatedTargetDensity" type="number">159.8</output>
-                </div>
-            </form>
         </div>
-                    
-    </body>
+
+        <div id="QACS_cores3" class="formSections">
+            <h3>Third Core:</h3>
+
+            <p>
+                <label for="QACS_coreName3">Core #: </label>
+                <input type="text" id="QACS_coreName3" name="QACS_coreName3" placeholder="3 QA">
+            </p>
+
+            <p>
+                <label for="QACS_stationNum3">Core Station #: </label>
+                <output class="output" id="QACS_stationNum3" type="number"> Start + 150</output>
+            </p>
+
+            <p>
+                <label for="QACS_percentCompaction3">Core Compacton %: </label>
+                <input type="number" id="QACS_percentCompaction3" name="QACS_percentCompaction3" placeholder="92.3">
+            </p>
+
+        </div>
+
+        <div id="QACS_cores4" class="formSections">
+            <h3>Fourth Core:</h3>
+
+            <p>
+                <label for="QACS_coreName4">Core #: </label>
+                <input type="text" id="QACS_coreName4" name="QACS_coreName4" placeholder="4 QA">
+            </p>
+
+            <p>
+                <label for="QACS_stationNum4">Core Station #: </label>
+                <output class="output" id="QACS_stationNum4" type="number"> Start + 200</output>
+            </p>
+
+            <p>
+                <label for="QACS_percentCompaction4">Core Compacton %: </label>
+                <input type="number" id="QACS_percentCompaction4" name="QACS_percentCompaction4" placeholder="92.7">
+            </p>
+        </div>
+
+        <div id="QACS_cores5" class="formSections">
+            <h3>Fifth Core:</h3>
+
+            <p>
+                <label for="QACS_coreName5">Core #: </label>
+                <input type="text" id="QACS_coreName5" name="QACS_coreName5" placeholder="5 QA">
+            </p>
+
+            <p>
+                <label for="QACS_stationNum5">Core Station #: </label>
+                <output class="output" id="QACS_stationNum5" type="number"> Start + 250</output>
+            </p>
+
+            <p>
+                <label for="QACS_percentCompaction5">Core Compacton %: </label>
+                <input type="number" id="QACS_percentCompaction5" name="QACS_percentCompaction5" placeholder="93.1">
+            </p>
+
+        </div>
+
+        <div id="QACS_coreAvgBox" class="formSections">
+            <h3>Average Core Compaction %:</h3>
+
+            <output class="output" id="QACS_coreAvg" type="number">92.5</output>
+
+        </div>
+    </form>
+
+    <div>
+        <h2 class="formTitle"> Gauge Readings : </h2>
+
+    </div>
+
+    <form id="QACS_ctrtests" class="generalInfo" action="process.php" method="POST">
+        <div class="noteBox">
+            <div class="note">
+                <p><strong>NOTE: </strong><br></br>
+
+                    <hr><br>
+
+                    *These readings should be taken from directly over the core locations before
+                    they are cut, but after the final roller pass. The Correlated Target Density will be calculated
+                    from these values. *
+                </p>
+
+            </div>
+
+        </div>
+
+        <div id="QAcores1Div" class="formSections">
+            <h3>First Core Gauge Test:</h3>
+
+            <p class="gaugeStation">
+                <label for="QACS_testStationNum1">Core Station #: </label>
+                <output class="output" id="QACS_testStationNum1" type="number"> Start + 50</output>
+            </p>
+
+            <p>
+                <label for="QACS_firstShot1">Gauge Reading #1 (PCF): </label>
+                <input type="text" id="QACS_firstShot1" name="QACS_firstShot1" placeholder="145.7">
+            </p>
+
+            <p id="QACS_secondShot_1">
+                <label for="QACS_secondShot1">Gauge Reading #2 (PCF): </label>
+                <input type="number" id="QACS_secondShot1" name="QACS_secondShot1" placeholder="147.5">
+            </p>
+
+        </div>
+
+        <div id="QAcores2Div" class="formSections">
+            <h3>Second Core Gauge Test:</h3>
+
+            <p class="gaugeStation">
+                <label for="QACS_testStationNum2">Core Station #: </label>
+                <output class="output" id="QACS_testStationNum2" type="number"> Start + 100</output>
+            </p>
+
+            <p>
+                <label for="QACS_firstShot2">Gauge Reading #1 (PCF): </label>
+                <input type="text" id="QACS_firstShot2" name="QACS_firstShot2" placeholder="152.1">
+            </p>
+
+            <p id="QACS_secondShot_2">
+                <label for="QACS_secondShot2">Gauge Reading #2 (PCF): </label>
+                <input type="number" id="QACS_secondShot2" name="QACS_secondShot2" placeholder="149.2">
+            </p>
+
+        </div>
+
+        <div id="QAcores3Div" class="formSections">
+            <h3>Third Core Gauge Test:</h3>
+
+            <p class="gaugeStation">
+                <label for="QACS_testStationNum3">Core Station #: </label>
+                <output class="output" id="QACS_testStationNum3" type="number"> Start + 150</output>
+            </p>
+
+            <p>
+                <label for="QACS_firstShot3">Gauge Reading #1 (PCF): </label>
+                <input type="text" id="QACS_firstShot3" name="QACS_firstShot3" placeholder="150.4">
+            </p>
+
+            <p id="QACS_secondShot_3">
+                <label for="QACS_secondShot3">Gauge Reading #2 (PCF): </label>
+                <input type="number" id="QACS_secondShot3" name="QACS_secondShot3" placeholder="148.6">
+            </p>
+
+        </div>
+
+        <div id="QAcores4Div" class="formSections">
+            <h3>Fourth Core Gauge Test:</h3>
+
+            <p class="gaugeStation">
+                <label for="QACS_testStationNum4">Core Station #: </label>
+                <output class="output" id="QACS_testStationNum4" type="number"> Start + 200</output>
+            </p>
+
+            <p>
+                <label for="QACS_firstShot4">Gauge Reading #1 (PCF): </label>
+                <input type="text" id="QACS_firstShot4" name="QACS_firstShot4" placeholder="146.9">
+            </p>
+
+            <p id="QACS_secondShot_4">
+                <label for="QACS_secondShot4">Gauge Reading #2 (PCF): </label>
+                <input type="number" id="QACS_secondShot4" name="QACS_secondShot4" placeholder="144.8">
+            </p>
+
+        </div>
+
+        <div id="QAcores5Div" class="formSections">
+            <h3>Fifth Core Gauge Test:</h3>
+
+            <p class="gaugeStation">
+                <label for="QACS_testStationNum5">Core Station #: </label>
+                <output class="output" id="QACS_testStationNum5" type="number"> Start + 250</output>
+            </p>
+
+            <p>
+                <label for="QACS_firstShot5">Gauge Reading #1 (PCF): </label>
+                <input type="text" id="QACS_firstShot5" name="QACS_firstShot5" placeholder="145.3">
+            </p>
+
+            <p id="QACS_secondShot_5">
+                <label for="QACS_secondShot5">Gauge Reading #2 (PCF): </label>
+                <input type="number" id="QACS_secondShot5" name="QACS_secondShot5" placeholder="147.6">
+            </p>
+
+        </div>
+
+        <div id="QACS_coreAvgPCFBox" class="formSections">
+            <h3>Average Asphalt PCF:</h3>
+
+            <output class="output" id="QACS_avgPCF" type="number">147.8</output>
+
+            <h3 id="correlatedPCFHeader">
+                Correlated Target Density PCF:
+            </h3>
+
+            <output class="output" id="QACS_correlatedTargetDensity" type="number">159.8</output>
+
+        </div>
+    </form>
+
+
+</body>
+
 </html>

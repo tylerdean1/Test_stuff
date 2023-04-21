@@ -1,90 +1,110 @@
 /*The constants are broken down by the different form sections to make it easier to read/track.
 
 The first section is the General Test Setup Info Section */
+let QACS_nuclear = document.querySelector("#QACS_nuclear")
+let QACS_nonNuclear = document.querySelector("#QACS_nonNuclear")
+let QACS_qaCtrDate = document.querySelector("#QACS_qaCtrDate")
+let QACS_name = document.querySelector("#QACS_name")
+let QACS_hicamsNum = document.querySelector("#QACS_hicamsNum")
+let QACS_contractNum = document.querySelector("#QACS_contractNum")
+let QACS_county = document.querySelector("#QACS_county")
+let QACS_ctrStripNum = document.querySelector("#QACS_ctrStripNum")
+let QACS_startStation = document.querySelector("#QACS_startStation")
+let QACS_endStation = document.querySelector("#QACS_endStation")
+let QACS_lane = document.querySelector("#QACS_lane")
+let QACS_layer = document.querySelector("#QACS_layer")
+let QACS_depth = document.querySelector("#QACS_depth")
+let QACS_width = document.querySelector("#QACS_width")
+let QACS_routeMap = document.querySelector("#QACS_routeMap")
+let QACS_jmf = document.querySelector("#QACS_jmf")
+let QACS_gSerialNum = document.querySelector("#QACS_gSerialNum")
+let QACS_material = document.querySelector("#QACS_material")
+let QACS_crewNum = document.querySelector("#QACS_crewNum")
 
-const QACS_nuclear = document.getElementById("QACS_nuclear")
-const QACS_nonNuclear = document.getElementById("QACS_nonNuclear")
-const QACS_qaCtrDate = document.getElementById("QACS_qaCtrDate")
-const QACS_name = document.getElementById("QACS_name")
-const QACS_hicamsNum = document.getElementById("QACS_hicamsNum")
-const QACS_contractNum = document.getElementById("QACS_contractNum")
-const QACS_county = document.getElementById("QACS_county")
-const QACS_ctrStripNum = document.getElementById("QACS_ctrStripNum")
-const QACS_startStation = document.getElementById("QACS_startStation")
-const QACS_endStation = document.getElementById("QACS_endStation")
-const QACS_lane = document.getElementById("QACS_lane")
-const QACS_layer = document.getElementById("QACS_layer")
-const QACS_depth = document.getElementById("QACS_depth")
-const QACS_width = document.getElementById("QACS_width")
-const QACS_routeMap = document.getElementById("QACS_routeMap")
-const QACS_jmf = document.getElementById("QACS_jmf")
-const QACS_gSerialNum = document.getElementById("QACS_gSerialNum")
-const QACS_material = document.getElementById("QACS_material")
-const QACS_crewNum = document.getElementById("QACS_crewNum")
+/* This is all of the stuff needed to switch from a Nuclear Gauge to Non-Nuclear */
+let QACS_secondShot_1 = document.querySelector("#QACS_secondShot_1")
+let QACS_secondShot_2 = document.querySelector("#QACS_secondShot_2")
+let QACS_secondShot_3 = document.querySelector("#QACS_secondShot_3")
+let QACS_secondShot_4 = document.querySelector("#QACS_secondShot_4")
+let QACS_secondShot_5 = document.querySelector("#QACS_secondShot_5")
+let QACS_SCTitle = document.querySelector("#QACS_SCTitle")
+let standardCountsDiv = document.querySelector("#standardCountsDiv")
+let QACS_standardCounts = document.querySelector("#QACS_standardCounts")
+let QAcores1 = document.querySelector("#QAcores1Div")
+let QAcores2 = document.querySelector("#QAcores2Div")
+let QAcores3 = document.querySelector("#QAcores3Div")
+let QAcores4 = document.querySelector("#QAcores4Div")
+let QAcores5 = document.querySelector("#QAcores5Div")
+let nucBool = true
 
 /* This is the Standard Counts Section */
+
 //                     System 1
-const QACS_sys1 = document.getElementById("QACS_sys1")
-const QACS_sys1Plus = document.getElementById("QACS_sys1Plus")
-const QACS_sys1Minus = document.getElementById("QACS_sys1Minus")
+let QACS_sys1 = document.querySelector("#QACS_sys1")
+let QACS_sys1Plus = document.querySelector("#QACS_sys1Plus")
+let QACS_sys1Minus = document.querySelector("#QACS_sys1Minus")
 //                     System 2
-const QACS_sys2 = document.getElementById("QACS_sys2")
-const QACS_sys2Plus = document.getElementById("QACS_sys2Plus")
-const QACS_sys2Minus = document.getElementById("QACS_sys2Minus")
+let QACS_sys2 = document.querySelector("#QACS_sys2")
+let QACS_sys2Plus = document.querySelector("#QACS_sys2Plus")
+let QACS_sys2Minus = document.querySelector("#QACS_sys2Minus")
+
+
 
 /* This is the Core Samples Section */
 //                           Core 1
-const QACS_coreName1 = document.getElementById("QACS_coreName1")
-const QACS_stationNum1 = document.getElementById("QACS_stationNum1")
-const QACS_percentCompaction1 = document.getElementById("QACS_percentCompaction1")
+let QACS_coreName1 = document.querySelector("#QACS_coreName1")
+let QACS_stationNum1 = document.querySelector("#QACS_stationNum1")
+let QACS_percentCompaction1 = document.querySelector("#QACS_percentCompaction1")
 //                           Core 2
-const QACS_coreName2 = document.getElementById("QACS_coreName2")
-const QACS_stationNum2 = document.getElementById("QACS_stationNum2")
-const QACS_percentCompaction2 = document.getElementById("QACS_percentCompaction2")
+let QACS_coreName2 = document.querySelector("#QACS_coreName2")
+let QACS_stationNum2 = document.querySelector("#QACS_stationNum2")
+let QACS_percentCompaction2 = document.querySelector("#QACS_percentCompaction2")
 //                           Core 3
-const QACS_coreName3 = document.getElementById("QACS_coreName3")
-const QACS_stationNum3 = document.getElementById("QACS_stationNum3")
-const QACS_percentCompaction3 = document.getElementById("QACS_percentCompaction3")
+let QACS_coreName3 = document.querySelector("#QACS_coreName3")
+let QACS_stationNum3 = document.querySelector("#QACS_stationNum3")
+let QACS_percentCompaction3 = document.querySelector("#QACS_percentCompaction3")
 //                           Core 4
-const QACS_coreName4 = document.getElementById("QACS_coreName4")
-const QACS_stationNum4 = document.getElementById("QACS_stationNum4")
-const QACS_percentCompaction4 = document.getElementById("QACS_percentCompaction4")
+let QACS_coreName4 = document.querySelector("#QACS_coreName4")
+let QACS_stationNum4 = document.querySelector("#QACS_stationNum4")
+let QACS_percentCompaction4 = document.querySelector("#QACS_percentCompaction4")
 //                           Core 5
-const QACS_coreName5 = document.getElementById("QACS_coreName5")
-const QACS_stationNum5 = document.getElementById("QACS_stationNum5")
-const QACS_percentCompaction5 = document.getElementById("QACS_percentCompaction5")
+let QACS_coreName5 = document.querySelector("#QACS_coreName5")
+let QACS_stationNum5 = document.querySelector("#QACS_stationNum5")
+let QACS_percentCompaction5 = document.querySelector("#QACS_percentCompaction5")
 //                           Core Average
-const QACS_coreAvg = document.getElementById("QACS_coreAvg")
+let QACS_coreAvg = document.querySelector("#QACS_coreAvg")
+
+
 
 /* This is the Gauge Readings Section */
 //                           Core 1
-const QACS_testStationNum1 = document.getElementById("QACS_testStationNum1")
-const QACS_firstShot1 = document.getElementById("QACS_firstShot1")
-const QACS_secondShot1 = document.getElementById("QACS_secondShot1")
+let QACS_testStationNum1 = document.querySelector("#QACS_testStationNum1")
+let QACS_firstShot1 = document.querySelector("#QACS_firstShot1")
+let QACS_secondShot1 = document.querySelector("#QACS_secondShot1")
 
 //                           Core 2
-const QACS_testStationNum2 = document.getElementById("QACS_testStationNum2")
-const QACS_firstShot2 = document.getElementById("QACS_firstShot2")
-const QACS_secondShot2 = document.getElementById("QACS_secondShot2")
+let QACS_testStationNum2 = document.querySelector("#QACS_testStationNum2")
+let QACS_firstShot2 = document.querySelector("#QACS_firstShot2")
+let QACS_secondShot2 = document.querySelector("#QACS_secondShot2")
 
 //                           Core 3
-const QACS_testStationNum3 = document.getElementById("QACS_testStationNum3")
-const QACS_firstShot3 = document.getElementById("QACS_firstShot3")
-const QACS_secondShot3 = document.getElementById("QACS_secondShot3")
+let QACS_testStationNum3 = document.querySelector("#QACS_testStationNum3")
+let QACS_firstShot3 = document.querySelector("#QACS_firstShot3")
+let QACS_secondShot3 = document.querySelector("#QACS_secondShot3")
 
 //                           Core 4
-const QACS_testStationNum4 = document.getElementById("QACS_testStationNum4")
-const QACS_firstShot4 = document.getElementById("QACS_firstShot4")
-const QACS_secondShot4 = document.getElementById("QACS_secondShot4")
+let QACS_testStationNum4 = document.querySelector("#QACS_testStationNum4")
+let QACS_firstShot4 = document.querySelector("#QACS_firstShot4")
+let QACS_secondShot4 = document.querySelector("#QACS_secondShot4")
 
 //                           Core 5
-const QACS_testStationNum5 = document.getElementById("QACS_testStationNum5")
-const QACS_firstShot5 = document.getElementById("QACS_firstShot5")
-const QACS_secondShot5 = document.getElementById("QACS_secondShot5")
+let QACS_testStationNum5 = document.querySelector("#QACS_testStationNum5")
+let QACS_firstShot5 = document.querySelector("#QACS_firstShot5")
+let QACS_secondShot5 = document.querySelector("#QACS_secondShot5")
 
 //                           Average PCF and Correlated Target
-const QACS_avgPCF = document.getElementById("QACS_avgPCF")
-const QACS_correlatedTargetDensity = document.getElementById("QACS_correlatedTargetDensity")
+let QACS_avgPCF = document.querySelector("#QACS_avgPCF")
+let QACS_correlatedTargetDensity = document.querySelector("#QACS_correlatedTargetDensity")
 
 
 
@@ -94,7 +114,40 @@ const QACS_correlatedTargetDensity = document.getElementById("QACS_correlatedTar
     
 })  */
 
-QACS_nuclear.addEventListener("change", () => {
-    return console.log("something has changed");
+
+/* This section is the script for changing gauge types. */
+
+QACS_nuclear.addEventListener('click', () => {
+    nucBool = true
+    standardCountsDiv.append(QACS_SCTitle, QACS_standardCounts)
+    QAcores1.append(QACS_secondShot_1)
+    QAcores2.append(QACS_secondShot_2)
+    QAcores3.append(QACS_secondShot_3)
+    QAcores4.append(QACS_secondShot_4)
+    QAcores5.append(QACS_secondShot_5)
     
+})
+
+QACS_nonNuclear.addEventListener('click', () => {
+    nucBool = false
+    QACS_SCTitle.remove()
+    QACS_standardCounts.remove()
+    QACS_secondShot_1.remove()
+    QACS_secondShot_2.remove()
+    QACS_secondShot_3.remove()
+    QACS_secondShot_4.remove()
+    QACS_secondShot_5.remove()
+    
+})
+
+QACS_startStation.addEventListener('change', () => {
+    QACS_stationNum1 = QACS_startStation + 50
+})
+
+
+
+
+
+QACS_sys1.addEventListener('change', () => {
+    alert('I clicked the box')
 })
